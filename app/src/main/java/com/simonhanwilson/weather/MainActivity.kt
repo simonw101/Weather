@@ -15,9 +15,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
-import org.json.JSONObject
 import java.io.IOException
 import java.util.*
+import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
 
@@ -152,19 +152,17 @@ class MainActivity : AppCompatActivity() {
 
                 if (response.isSuccessful) {
 
-                    val result = response.body?.string()
+                    val result = response.body!!.string()
 
-                    val jsonData = JSONObject(result)
+                    var weather = CurrentWeatherModel()
 
-                    val temp = jsonData.getJSONObject("main").getString("temp")
+                    var parsedData = ParseJson()
 
-                    Log.i("weather", temp.toString())
+                    weather = parsedData.parseJsonData(result)
 
                     runOnUiThread {
 
-                        //hello.text = result
-
-                        tempTV.text = temp
+                        tempTV.text = "${weather.temp.roundToInt()}°C"
 
                     }
 
