@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
 
             getLocation(location)
 
-            val url =  "http://api.openweathermap.org/data/2.5/weather?lat=${location?.latitude}&lon=${location?.longitude}&appid=d07c4e2ef774740b6bd8c2c43919b025"
+            val url =  "http://api.openweathermap.org/data/2.5/weather?lat=${location?.latitude}&lon=${location?.longitude}&units=metric&appid=d07c4e2ef774740b6bd8c2c43919b025"
 
             try {
 
@@ -156,13 +156,17 @@ class MainActivity : AppCompatActivity() {
 
                     var weather = CurrentWeatherModel()
 
-                    var parsedData = ParseJson()
+                    val parsedData = ParseJson()
 
                     weather = parsedData.parseJsonData(result)
 
                     runOnUiThread {
 
-                        tempTV.text = "${weather.temp.roundToInt()}°C"
+                        tempTV.text = String.format("%.0f", weather.temp) + "°C"
+
+                        sunTV.text = "${weather.convertTimeSunrise()}/${weather.convertTimeSunset()}"
+
+                        descTv.text = weather.description
 
                     }
 
