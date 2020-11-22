@@ -28,8 +28,9 @@
 
     <TextView
         android:id="@+id/tempTV"
-        android:layout_width="173dp"
-        android:layout_height="155dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:shadowColor="#000000"
         android:shadowDx="5"
@@ -37,13 +38,11 @@
         android:shadowRadius="5"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="70sp"
+        android:textSize="60sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387"
+        app:layout_constraintTop_toBottomOf="@+id/iconLayout"
         tools:text="50°C" />
 
     <LinearLayout
@@ -84,9 +83,9 @@
 
     <TextView
         android:id="@+id/descTv"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="8dp"
         android:shadowColor="#000000"
         android:shadowDx="5"
         android:shadowDy="5"
@@ -98,6 +97,27 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tempTV" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/iconLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descTv">
+
+        <com.github.pwittchen.weathericonview.WeatherIconView
+            android:id="@+id/my_weather_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

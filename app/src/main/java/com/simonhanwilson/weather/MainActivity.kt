@@ -3,6 +3,7 @@ package com.simonhanwilson.weather
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationListener
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        my_weather_icon.setIconSize(150)
+        my_weather_icon.setIconColor(Color.WHITE)
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as? LocationManager
 
@@ -167,6 +171,339 @@ class MainActivity : AppCompatActivity() {
                         sunTV.text = "${weather.convertTimeSunrise()}/${weather.convertTimeSunset()}"
 
                         descTv.text = weather.description
+
+                        when (weather.id) {
+                            200 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_thunderstorm))
+
+
+                            }
+                            201 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_thunderstorm))
+
+
+                            }
+                            202 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_thunderstorm))
+
+
+                            }
+                            210 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_thunderstorm))
+
+
+                            }
+                            211 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_thunderstorm))
+
+
+                            }
+                            212 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_thunderstorm))
+
+
+                            }
+                            221 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_thunderstorm))
+
+
+                            }
+                            230 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_thunderstorm))
+
+
+                            }
+                            231 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_thunderstorm))
+
+
+                            }
+                            232 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_thunderstorm))
+
+
+                            }
+                            300 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_showers))
+
+
+                            }
+                            301 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_showers))
+
+
+                            }
+                            302 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_showers))
+
+
+                            }
+                            310 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_showers))
+
+
+                            }
+                            311 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_showers))
+
+
+                            }
+                            312 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_showers))
+
+
+                            }
+                            313 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_showers))
+
+
+                            }
+                            314 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_showers))
+
+
+                            }
+                            321 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_showers))
+
+
+                            }
+                            500 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_rain))
+
+
+                            }
+                            501 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_rain))
+
+
+                            }
+                            502 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_rain))
+
+
+                            }
+                            503 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_rain))
+
+
+                            }
+                            504 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_rain))
+
+
+                            }
+                            511 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_rain))
+
+
+                            }
+                            520 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_rain))
+
+
+                            }
+                            521 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_rain))
+
+
+                            }
+                            522 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_rain))
+
+
+                            }
+                            531 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_rain))
+
+
+                            }
+                            600 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            601 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            602 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            611 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            612 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            613 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            615 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            616 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            620 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            621 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            622 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_snow))
+
+
+                            }
+                            701 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_day_haze))
+
+
+                            }
+                            711 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_smoke))
+
+
+                            }
+                            721 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_day_haze))
+
+
+                            }
+                            731 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_dust))
+
+
+                            }
+                            741 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_fog))
+
+
+                            }
+                            751 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_sandstorm))
+
+
+                            }
+                            761 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_dust))
+
+
+                            }
+                            762 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_volcano))
+
+
+                            }
+                            771 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_windy))
+
+
+                            }
+                            781 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_tornado))
+
+
+                            }
+                            800 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_cloud))
+
+
+                            }
+                            801 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_cloud))
+
+
+                            }
+                            802 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_cloud))
+
+
+                            }
+                            803 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_cloud))
+
+
+                            }
+                            804 -> {
+
+                                my_weather_icon.setIconResource(getString(R.string.wi_cloud))
+
+
+                            }
+                        }
 
                     }
 

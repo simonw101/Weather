@@ -20,6 +20,7 @@ class CurrentWeatherModel {
     var pressure = ""
     var humidity = ""
     var description = ""
+    var id = 0
     var visibility = ""
     var windSpeed = ""
     var sunrise = ""

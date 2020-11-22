@@ -14,6 +14,8 @@ open class ParseJson {
 
         currentWeather.description = jsonData.getJSONArray("weather").getJSONObject(0).getString("description")
 
+        currentWeather.id = jsonData.getJSONArray("weather").getJSONObject(0).getString("id").toInt()
+
         currentWeather.humidity = jsonData.getJSONObject("main").getString("humidity")
 
         currentWeather.pressure = jsonData.getJSONObject("main").getString("pressure")
