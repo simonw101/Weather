@@ -16,9 +16,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
+import org.json.JSONObject
 import java.io.IOException
 import java.util.*
-import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
 
@@ -82,8 +82,9 @@ class MainActivity : AppCompatActivity() {
 
             getLocation(location)
 
-            val url =  "http://api.openweathermap.org/data/2.5/weather?lat=${location?.latitude}&lon=${location?.longitude}&units=metric&appid=d07c4e2ef774740b6bd8c2c43919b025"
+//            val url =  "http://api.openweathermap.org/data/2.5/weather?lat=${location?.latitude}&lon=${location?.longitude}&units=metric&appid=d07c4e2ef774740b6bd8c2c43919b025"
 
+            val url = "https://api.openweathermap.org/data/2.5/onecall?lat=${location?.latitude}&lon=${location?.longitude}&units=metric&exclude=hourly,minutely&appid=c6450fbf674a6265a015d0ca9c1edbc0"
             try {
 
                 run(url)
@@ -163,6 +164,12 @@ class MainActivity : AppCompatActivity() {
                     val parsedData = ParseJson()
 
                     weather = parsedData.parseJsonData(result)
+
+                    val jsonData = JSONObject(result)
+
+                    val temp = jsonData.getJSONArray("daily").toString()
+
+                    Log.i("info", temp)
 
                     runOnUiThread {
 
