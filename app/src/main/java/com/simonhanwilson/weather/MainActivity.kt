@@ -14,11 +14,16 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 import java.util.*
+import kotlin.collections.ArrayList
+
+val weatherInformationList = ArrayList<String>()
+val iconList = ArrayList<String>()
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
         my_weather_icon.setIconSize(150)
         my_weather_icon.setIconColor(Color.WHITE)
+
+        weatherInformationList.add("from list")
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as? LocationManager
 
@@ -178,6 +185,8 @@ class MainActivity : AppCompatActivity() {
                         sunTV.text = "${weather.convertTimeSunrise()}/${weather.convertTimeSunset()}"
 
                         descTv.text = weather.description
+
+                        initrecyclerView()
 
                         when (weather.id) {
                             200 -> {
@@ -523,4 +532,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun initrecyclerView() {
+
+        val customAdapter = CustomWeatherAdapter(this, iconList, weatherInformationList)
+
+        recyclerView.adapter = customAdapter
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+    }
 }
