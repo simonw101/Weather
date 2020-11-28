@@ -1,6 +1,7 @@
 package com.simonhanwilson.weather
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,10 @@ class CustomWeatherAdapter(val context: Context, val iconList: ArrayList<String>
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
             holder.list_text.text = weatherInformationList[position]
+
+            holder.icon_list.setIconResource(iconList[position])
+
+            holder.icon_list.setIconColor(Color.WHITE)
 
         }
 

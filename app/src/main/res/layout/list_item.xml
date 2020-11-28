@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:id="@+id/containerLayout">
 
@@ -10,18 +10,25 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:id="@+id/iconLayout"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <com.github.pwittchen.weathericonview.WeatherIconView
             android:id="@+id/list_icon"
+            android:background="#000"
+            android:layout_gravity="center"
+            android:padding="10px"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
 
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/list_textView"
+        android:layout_marginTop="75dp"
+        android:background="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">Test</TextView>
 

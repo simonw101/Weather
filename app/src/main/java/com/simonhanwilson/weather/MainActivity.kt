@@ -16,6 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.list_item.*
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
@@ -38,7 +39,9 @@ class MainActivity : AppCompatActivity() {
         my_weather_icon.setIconSize(150)
         my_weather_icon.setIconColor(Color.WHITE)
 
-        weatherInformationList.add("from list")
+        weatherInformationList.clear()
+        iconList.clear()
+
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as? LocationManager
 
@@ -185,6 +188,17 @@ class MainActivity : AppCompatActivity() {
                         sunTV.text = "${weather.convertTimeSunrise()}/${weather.convertTimeSunset()}"
 
                         descTv.text = weather.description
+
+                        weatherInformationList.add(weather.pressure)
+                        weatherInformationList.add(weather.humidity)
+                        weatherInformationList.add(weather.visibility)
+                        weatherInformationList.add(weather.windSpeed)
+
+                        iconList.add(getString(R.string.wi_barometer))
+                        iconList.add(getString(R.string.wi_humidity))
+                        iconList.add(getString(R.string.wi_day_sunny))
+                        iconList.add(getString(R.string.wi_windy))
+
 
                         initrecyclerView()
 
