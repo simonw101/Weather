@@ -23,9 +23,6 @@ import java.io.IOException
 import java.util.*
 import kotlin.collections.ArrayList
 
-val weatherInformationList = ArrayList<String>()
-val iconList = ArrayList<String>()
-
 class MainActivity : AppCompatActivity() {
 
     private var locationManager: LocationManager? = null
@@ -36,12 +33,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        my_weather_icon.setIconSize(150)
+        my_weather_icon.setIconSize(75)
         my_weather_icon.setIconColor(Color.WHITE)
-
-        weatherInformationList.clear()
-        iconList.clear()
-
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as? LocationManager
 
@@ -107,15 +100,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-            TODO("Not yet implemented")
+
         }
 
         override fun onProviderEnabled(provider: String?) {
-            TODO("Not yet implemented")
+
         }
 
         override fun onProviderDisabled(provider: String?) {
-            TODO("Not yet implemented")
+
         }
 
     }
@@ -188,19 +181,6 @@ class MainActivity : AppCompatActivity() {
                         sunTV.text = "${weather.convertTimeSunrise()}/${weather.convertTimeSunset()}"
 
                         descTv.text = weather.description
-
-                        weatherInformationList.add(weather.pressure)
-                        weatherInformationList.add(weather.humidity)
-                        weatherInformationList.add(weather.visibility)
-                        weatherInformationList.add(weather.windSpeed)
-
-                        iconList.add(getString(R.string.wi_barometer))
-                        iconList.add(getString(R.string.wi_humidity))
-                        iconList.add(getString(R.string.wi_day_sunny))
-                        iconList.add(getString(R.string.wi_windy))
-
-
-                        initrecyclerView()
 
                         when (weather.id) {
                             200 -> {
@@ -546,13 +526,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun initrecyclerView() {
-
-        val customAdapter = CustomWeatherAdapter(this, iconList, weatherInformationList)
-
-        recyclerView.adapter = customAdapter
-
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-    }
 }
